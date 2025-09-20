@@ -1,0 +1,18 @@
+import streamlit as st
+
+def show_home():
+    st.title("Welcome to E-Commerce App")
+    st.write("Browse products below:")
+
+    # Example products (replace with your backend API call)
+    products = [
+        {"name": "Product A", "price": 100},
+        {"name": "Product B", "price": 200},
+    ]
+
+    for p in products:
+        st.subheader(p["name"])
+        st.write(f"Price: ${p['price']}")
+        if st.button(f"View {p['name']}"):
+            st.session_state.selected_product = p["name"]
+            st.write(f"You selected {p['name']}")
